@@ -1,0 +1,78 @@
+
+
+.story-section {
+  background: var(--c-dark-green);
+  color: var(--c-white);
+}
+
+.story-section .section-kicker {
+  color: #e3b879;
+}
+
+.story-section p {
+  color: rgba(255, 255, 255, 0.72);
+}
+
+
+.story-grid {
+  width: min(var(--container), calc(100% - 60px));
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: clamp(36px, 6vw, 86px);
+  align-items: center;
+}
+
+.story-grid > .reveal:first-child {
+  padding: 30px;
+}
+
+.story-grid h2 {
+  margin-bottom: 24px;
+}
+
+.story-grid p + p {
+  margin-top: 16px;
+}
+
+
+.timeline {
+  padding: 26px;
+  color: var(--c-dark);
+  border: 1px solid var(--c-border);
+  border-radius: 28px;
+  background: var(--c-white);
+  box-shadow: var(--sh-card);
+  transition: transform var(--t-slow), box-shadow var(--t-slow);
+}
+
+.timeline:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 28px 70px rgba(38, 15, 32, 0.16);
+}
+
+.timeline-item {
+  display: grid;
+  grid-template-columns: 90px 1fr;
+  gap: 18px;
+  padding: 18px 0;
+  border-bottom: 1px solid var(--c-border);
+}
+
+.timeline-item:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.timeline-year {
+  color: var(--c-primary);
+  font-family: var(--f-primary);
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.timeline-desc {
+  color: var(--c-text-muted);
+}
+
+/* rzu-informatique */

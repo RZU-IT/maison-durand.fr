@@ -1,0 +1,50 @@
+
+
+.craft-section {
+  background: var(--c-off-white);
+}
+
+.craft-grid {
+  width: min(var(--container), 100%);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+  align-items: stretch;
+}
+
+
+.info-card {
+  padding: 28px;
+  border: 1px solid var(--c-border);
+  border-radius: 22px;
+  background: var(--c-white);
+  box-shadow: var(--sh-card);
+  transition: transform var(--t-slow), box-shadow var(--t-slow), border-color var(--t-slow);
+}
+
+.info-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(91, 41, 79, 0.2);
+  box-shadow: 0 20px 48px rgba(38, 15, 32, 0.12);
+}
+
+.info-card-number {
+  display: inline-block;
+  margin-bottom: 18px;
+  color: var(--c-accent);
+  font-family: var(--f-primary);
+  font-weight: 900;
+  font-size: 1.2rem;
+}
+
+.info-card h3 {
+  color: var(--c-dark);
+}
+
+.info-card p {
+  margin-top: 12px;
+  color: var(--c-text-muted);
+}
+
+/* rzu-informatique */

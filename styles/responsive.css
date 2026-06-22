@@ -1,0 +1,152 @@
+
+
+
+@media (max-width: 1040px) {
+
+  .hero-layout {
+    grid-template-columns: 1fr;
+    gap: 26px;
+  }
+
+  .hero-copy {
+    max-width: 760px;
+  }
+
+  .hero-visual {
+    width: min(520px, 100%);
+    min-height: 380px;
+    margin-inline: auto;
+  }
+}
+
+
+@media (max-width: 920px) {
+
+  
+  .navbar-burger {
+    display: flex;
+  }
+
+  .navbar-links {
+    display: none;
+  }
+
+  .hero-visual {
+    min-height: 340px;
+  }
+
+  .proof-row {
+    grid-template-columns: 1fr;
+  }
+
+  
+  .products-grid {
+    grid-template-columns: 1fr;
+  }
+
+  
+  .story-grid {
+    grid-template-columns: 1fr;
+  }
+
+  
+  .craft-grid {
+    grid-template-columns: 1fr;
+  }
+
+  
+  .reviews-grid {
+    grid-template-columns: 1fr;
+  }
+
+  
+  .contact-panel {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+@media (max-width: 620px) {
+
+  
+  .navbar {
+    width: calc(100% - 20px);
+    margin-top: 10px;
+    height: 68px;
+  }
+
+  .brand-text small {
+    display: none;
+  }
+
+  .navbar-mobile {
+    top: 94px;
+  }
+
+  
+  .hero-section {
+    padding-top: 120px;
+  }
+
+  .hero-actions {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    width: 100%;
+  }
+
+  .hero-visual {
+    min-height: 340px;
+    overflow: visible;
+  }
+
+  .prune-card {
+    width: min(220px, 68vw);
+    height: 280px;
+  }
+
+  .prune-one,
+  .prune-two,
+  .prune-three {
+    display: block;
+    opacity: 0.92;
+    pointer-events: none;
+  }
+
+  .prune-one {
+    width: 62px;
+    height: 76px;
+    left: 6%;
+    top: 18%;
+  }
+
+  .prune-two {
+    width: 48px;
+    height: 60px;
+    right: 8%;
+    top: 20%;
+  }
+
+  .prune-three {
+    width: 44px;
+    height: 54px;
+    left: 18%;
+    bottom: 6%;
+  }
+
+  
+  .site-footer {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+
+
+@media (max-width: 920px){.reviews-layout,.contact-panel{grid-template-columns:1fr}.form-row{grid-template-columns:1fr}.reviews-track{min-height:280px}}
+@media (max-width: 620px){.footer-bottom{flex-direction:column;text-align:center}.footer-legal{justify-content:center}.contact-hours p{flex-direction:column;gap:2px}.reviews-carousel{padding:20px}.reviews-track{min-height:250px}.review-card{gap:10px;padding-bottom:8px}.review-card blockquote{font-size:1.18rem;line-height:1.25}.reviews-controls{justify-content:center;margin-top:12px}.reviews-score{padding:22px}.reviews-score strong{font-size:3.6rem}.score-bars{margin-top:14px}}
+
+/* rzu-informatique */

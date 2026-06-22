@@ -1,0 +1,195 @@
+
+
+.hero-section {
+  min-height: 94svh;
+  padding-top: 150px;
+  padding-inline: clamp(18px, 5vw, 56px);
+  color: var(--c-white);
+  background:
+    radial-gradient(circle at 76% 38%, rgba(185, 121, 69, 0.16), transparent 26%),
+    radial-gradient(circle at 12% 80%, rgba(55, 105, 70, 0.20), transparent 32%),
+    var(--g-hero);
+  overflow: hidden;
+}
+
+
+.hero-layout {
+  width: min(var(--container), 100%);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1.08fr) minmax(360px, 0.92fr);
+  gap: clamp(34px, 5vw, 72px);
+  align-items: center;
+}
+
+
+.hero-copy {
+  position: relative;
+  z-index: 2;
+}
+
+.hero-copy .section-kicker {
+  margin-bottom: 16px;
+}
+
+.hero-copy h1 {
+  max-width: 780px;
+}
+
+.hero-description {
+  max-width: 620px;
+  margin-top: 24px;
+  color: rgba(255, 255, 255, 0.74);
+  font-size: clamp(1rem, 1.6vw, 1.18rem);
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 32px;
+}
+
+
+.hero-visual {
+  position: relative;
+  min-height: clamp(380px, 38vw, 460px);
+  isolation: isolate;
+}
+
+
+.prune-card {
+  position: absolute;
+  left: 50%;
+  top: 52%;
+  width: clamp(230px, 24vw, 280px);
+  height: clamp(292px, 30vw, 340px);
+  transform: translate(-50%, -50%) rotate(-6deg);
+  transition: transform var(--t-slow), filter var(--t-slow);
+  z-index: 2;
+}
+
+.hero-visual:hover .prune-card {
+  transform: translate(-50%, -54%) rotate(0deg);
+  filter: saturate(1.08);
+}
+
+.prune-card-top {
+  position: absolute;
+  left: 18px;
+  right: 18px;
+  top: 0;
+  height: 92px;
+  border-radius: 28px 28px 16px 16px;
+  background: #231021;
+  transform: skewX(-8deg);
+}
+
+.prune-card-body {
+  position: absolute;
+  inset: 68px 0 0;
+  padding: clamp(24px, 2.6vw, 32px);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  border-radius: 32px;
+  color: var(--c-white);
+  background: linear-gradient(145deg, #d39a62 0%, #9f6b42 38%, #5b294f 100%);
+  box-shadow: 0 26px 70px rgba(10, 4, 9, 0.28);
+}
+
+.prune-card-body span,
+.prune-card-body em {
+  font-style: normal;
+  opacity: 0.72;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 0.72rem;
+}
+
+.prune-card-body strong {
+  max-width: 190px;
+  margin: 8px 0;
+  font-family: var(--f-primary);
+  font-size: clamp(1.75rem, 2.5vw, 2.2rem);
+  line-height: 0.98;
+}
+
+
+.prune,
+.prune-shape {
+  position: absolute;
+  display: block;
+  border-radius: 48% 52% 44% 56% / 58% 45% 55% 42%;
+  background:
+    radial-gradient(circle at 30% 24%, rgba(255, 255, 255, 0.28), transparent 12%),
+    linear-gradient(145deg, #180714, #6f2d62 64%, #c9824a);
+  box-shadow:
+    inset -18px -22px 30px rgba(0, 0, 0, 0.34),
+    0 20px 36px rgba(0, 0, 0, 0.26);
+}
+
+.prune-one {
+  width: clamp(70px, 8vw, 96px);
+  height: clamp(86px, 9.6vw, 116px);
+  left: max(0px, 4%);
+  top: 12%;
+  animation: float-prune 7s ease-in-out infinite;
+}
+
+.prune-two {
+  width: clamp(48px, 5.4vw, 64px);
+  height: clamp(60px, 6.4vw, 78px);
+  right: max(0px, 8%);
+  top: 22%;
+  animation: float-prune 8s ease-in-out infinite 0.8s;
+}
+
+.prune-three {
+  width: clamp(42px, 4.6vw, 54px);
+  height: clamp(52px, 5.6vw, 66px);
+  left: 18%;
+  bottom: 8%;
+  animation: float-prune 6.5s ease-in-out infinite 0.4s;
+}
+
+@keyframes float-prune {
+  0%, 100% { transform: translateY(0) rotate(-8deg); }
+  50%       { transform: translateY(-18px) rotate(5deg); }
+}
+
+
+.proof-row {
+  width: min(980px, 100%);
+  margin: 56px auto 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+
+.proof-row article {
+  padding: 17px;
+  text-align: center;
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.075);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(10px);
+}
+
+.proof-row strong,
+.proof-row span {
+  display: block;
+}
+
+.proof-row strong {
+  font-size: 1.3rem;
+  font-family: var(--f-primary);
+}
+
+.proof-row span {
+  color: rgba(255, 255, 255, 0.66);
+  font-size: var(--fs-sm);
+}
+
+/* rzu-informatique */
