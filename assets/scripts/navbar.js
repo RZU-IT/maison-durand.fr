@@ -1,6 +1,5 @@
 
-
-document.addEventListener('DOMContentLoaded', () => {
+function initNavbar() {
   const burgerBtn  = document.getElementById('burgerBtn');
   const mobileMenu = document.getElementById('mobileMenu');
 
@@ -27,6 +26,15 @@ document.addEventListener('DOMContentLoaded', () => {
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') closeMenu();
   });
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  if (document.querySelector('[data-include]')) {
+    document.addEventListener('includes:ready', initNavbar, { once: true });
+    return;
+  }
+
+  initNavbar();
 });
 
 // rzu-informatique

@@ -148,6 +148,43 @@
 .product-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px;margin-bottom:18px}.product-tags span{padding:5px 10px;border-radius:var(--r-full);background:#fff4e8;color:var(--c-primary-dark);font-size:var(--fs-xs);font-weight:800}
 .section-desc{margin-top:14px;color:var(--c-text-muted)}
 
+.products-more-wrap {
+  display: none;
+  justify-content: center;
+  margin-top: 28px;
+}
+
+.products-more {
+  display: inline-flex;
+  min-height: 48px;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 12px 20px;
+  border: 1px solid rgba(91, 41, 79, 0.2);
+  border-radius: var(--r-full);
+  color: var(--c-primary);
+  background: var(--c-white);
+  box-shadow: var(--sh-sm);
+  font-weight: 900;
+  transition: color var(--t-slow), border-color var(--t-slow), box-shadow var(--t-slow), transform var(--t-slow);
+}
+
+.products-more:hover,
+.products-more:focus-visible {
+  border-color: var(--c-primary);
+  box-shadow: 0 12px 28px rgba(38, 15, 32, 0.1);
+  transform: translateY(-2px);
+}
+
+.products-more i {
+  transition: transform var(--t-slow);
+}
+
+.products-more[aria-expanded="true"] i {
+  transform: rotate(180deg);
+}
+
 .product-image::after {
   content: '';
   position: absolute;
@@ -249,6 +286,41 @@
   .product-card:nth-child(1),
   .product-card:nth-child(2) {
     grid-column: auto;
+  }
+
+  .products-grid.products-collapsible .product-card:nth-child(n + 4) {
+    display: none;
+  }
+
+  .products-grid.products-collapsible.is-expanded .product-card:nth-child(n + 4) {
+    display: flex;
+    animation: product-card-open 0.5s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+  }
+
+  .products-grid.products-collapsible.is-collapsing .product-card:nth-child(n + 4) {
+    display: flex;
+    animation: product-card-close 0.3s ease both;
+  }
+
+  .products-more-wrap {
+    display: flex;
+  }
+}
+
+@keyframes product-card-open {
+  from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes product-card-close {
+  from { opacity: 1; transform: translateY(0); }
+  to { opacity: 0; transform: translateY(12px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .products-grid.products-collapsible.is-expanded .product-card:nth-child(n + 4),
+  .products-grid.products-collapsible.is-collapsing .product-card:nth-child(n + 4) {
+    animation-duration: 0.01ms;
   }
 }
 

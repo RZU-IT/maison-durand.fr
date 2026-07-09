@@ -20,67 +20,21 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
   
-  <link rel="stylesheet" href="styles/style.css">
-  <link rel="stylesheet" href="styles/navbar.css">
-  <link rel="stylesheet" href="styles/hero.css">
-  <link rel="stylesheet" href="styles/products.css">
-  <link rel="stylesheet" href="styles/story.css">
-  <link rel="stylesheet" href="styles/craft.css">
-  <link rel="stylesheet" href="styles/reviews.css">
-  <link rel="stylesheet" href="styles/contact.css">
-  <link rel="stylesheet" href="styles/footer.css">
-  <link rel="stylesheet" href="styles/responsive.css">
+  <link rel="stylesheet" href="assets/styles/style.css">
+  <link rel="stylesheet" href="assets/styles/navbar.css">
+  <link rel="stylesheet" href="assets/styles/hero.css">
+  <link rel="stylesheet" href="assets/styles/products.css">
+  <link rel="stylesheet" href="assets/styles/story.css">
+  <link rel="stylesheet" href="assets/styles/craft.css">
+  <link rel="stylesheet" href="assets/styles/reviews.css">
+  <link rel="stylesheet" href="assets/styles/contact.css">
+  <link rel="stylesheet" href="assets/styles/footer.css">
+  <link rel="stylesheet" href="assets/styles/responsive.css">
 </head>
 
 <body>
-
-  
-  <header class="site-header">
-
-    <nav class="navbar" id="navbar" aria-label="Navigation principale">
-
-      <a href="#accueil" class="navbar-brand" aria-label="Maison Durand — Retour en haut">
-        <span class="brand-symbol" aria-hidden="true">D</span>
-        <span class="brand-text">
-          <strong>Maison Durand</strong>
-          <small>Pruneaux d'Agen</small>
-        </span>
-      </a>
-
-      <ul class="navbar-links" role="list">
-        <li role="listitem"><a href="#produits"     class="navbar-link">Produits</a></li>
-        <li role="listitem"><a href="#histoire"     class="navbar-link">Histoire</a></li>
-        <li role="listitem"><a href="#savoir-faire" class="navbar-link">Savoir-faire</a></li>
-        <li role="listitem"><a href="#avis"         class="navbar-link">Avis</a></li>
-        <li role="listitem"><a href="#contact"      class="navbar-cta">Commander</a></li>
-      </ul>
-
-      <button
-        class="navbar-burger"
-        id="burgerBtn"
-        type="button"
-        aria-label="Ouvrir le menu"
-        aria-expanded="false"
-        aria-controls="mobileMenu"
-      >
-        <span class="burger-line"></span>
-        <span class="burger-line"></span>
-        <span class="burger-line"></span>
-      </button>
-
-    </nav>
-
-    <div class="navbar-mobile" id="mobileMenu" role="dialog" aria-modal="true" aria-label="Menu mobile">
-      <a href="#produits"     class="navbar-link">Produits</a>
-      <a href="#histoire"     class="navbar-link">Histoire</a>
-      <a href="#savoir-faire" class="navbar-link">Savoir-faire</a>
-      <a href="#avis"         class="navbar-link">Avis</a>
-      <a href="#contact"      class="navbar-cta">Commander</a>
-    </div>
-
-  </header>
-
-  <main>
+  <div data-include="partials/_navbar.html"></div>
+<main>
 
     
     <section class="hero-section" id="accueil" aria-labelledby="hero-title">
@@ -138,7 +92,7 @@
           <p class="section-desc">On garde une gamme courte. Les formats changent parfois selon les lots, les bocaux disponibles et la saison.</p>
         </div>
 
-        <div class="products-grid">
+        <div class="products-grid" id="productsGrid">
 
           <article class="product-card reveal">
             <div class="product-image product-nature"><span class="product-badge">Classique</span><span class="product-emoji" aria-hidden="true"></span></div>
@@ -206,6 +160,12 @@
             </div>
           </article>
 
+        </div>
+        <div class="products-more-wrap">
+          <button class="products-more" id="productsMore" type="button" aria-expanded="false" aria-controls="productsGrid" hidden>
+            <span>Voir plus de produits</span>
+            <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+          </button>
         </div>
       </div>
     </section>
@@ -354,65 +314,12 @@
     </section>
 
   </main>
-
-  
-  <footer class="site-footer" aria-label="Pied de page">
-    <div class="container footer-grid">
-      <div class="footer-brand">
-        <div class="footer-logo"><div><strong>Maison Durand</strong><small>Pruneaux d’Agen · IGP · Depuis 1962</small></div></div>
-        <p>Maison familiale en Lot-et-Garonne. Pruneaux nature, bio, Armagnac, coffrets et commandes professionnelles selon les disponibilités.</p>
-        <div class="footer-socials" aria-label="Réseaux sociaux">
-          <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-          <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-          <a href="#" aria-label="Pinterest"><i class="fa-brands fa-pinterest-p"></i></a>
-          <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
-        </div>
-      </div>
-      <nav class="footer-col footer-dropdown" aria-label="Nos produits">
-        <input class="footer-toggle" type="checkbox" id="footer-products">
-        <label class="footer-heading" for="footer-products">Nos produits <span aria-hidden="true"></span></label>
-        <div class="footer-dropdown-content">
-          <a href="#produits">Pruneaux Nature XXL</a>
-          <a href="#produits">Pruneaux Bio AB</a>
-          <a href="#produits">Pruneaux à l’Armagnac</a>
-          <a href="#produits">Confiture artisanale</a>
-          <a href="#produits">Coffrets</a>
-        </div>
-      </nav>
-
-      <nav class="footer-col footer-dropdown" aria-label="Navigation secondaire">
-        <input class="footer-toggle" type="checkbox" id="footer-house">
-        <label class="footer-heading" for="footer-house">La maison <span aria-hidden="true"></span></label>
-        <div class="footer-dropdown-content">
-          <a href="#histoire">Notre histoire</a>
-          <a href="#savoir-faire">Savoir-faire</a>
-          <a href="#avis">Avis clients</a>
-          <a href="#contact">Contact</a>
-          <a href="#contact">Espace pro</a>
-        </div>
-      </nav>
-
-      <div class="footer-col footer-labels footer-dropdown">
-        <input class="footer-toggle" type="checkbox" id="footer-certifications">
-        <label class="footer-heading" for="footer-certifications">Certifications <span aria-hidden="true"></span></label>
-        <div class="footer-dropdown-content">
-          <span>IGP Pruneaux d’Agen</span>
-          <span>Agriculture biologique AB</span>
-          <span>Produit de France</span>
-          <span>Emballage responsable</span>
-        </div>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <p class="footer-copy">© 2026 Maison Durand — Pruneaux d’Agen. Tous droits réservés. Création 2026 · RZU Informatique.</p>
-      <nav class="footer-legal" aria-label="Liens légaux"><a href="#">Mentions légales</a><a href="#">CGV</a><a href="#">Confidentialité</a><a href="#">Cookies</a></nav>
-    </div>
-  </footer>
-
-  
-  <script src="scripts/navbar.js"></script>
-  <script src="scripts/scroll.js"></script>
-  <script src="scripts/reviews.js"></script>
+  <div data-include="partials/_footer.html"></div>
+  <script src="assets/scripts/includes.js"></script>
+  <script src="assets/scripts/navbar.js"></script>
+  <script src="assets/scripts/scroll.js"></script>
+  <script src="assets/scripts/reviews.js"></script>
+  <script src="assets/scripts/products.js"></script>
 
 </body>
 </html>
