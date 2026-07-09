@@ -1,3 +1,3 @@
 User-agent: *
 Allow: /
-Sitemap: https://maison-durand-pruneaux.fr/sitemap.xml
+Sitemap: https://rzu-it.github.io/maison-durand.fr/sitemap.xml
