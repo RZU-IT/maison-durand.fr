@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <rect width="64" height="64" rx="12" fill="#263b2b"/>
+  <circle cx="31" cy="36" r="18" fill="#734064"/>
+  <path d="M31 19c2-8 8-12 17-11-2 8-7 12-17 11Z" fill="#b97945"/>
+  <path d="M31 19c1-5 2-8 5-11" fill="none" stroke="#fffaf4" stroke-width="3" stroke-linecap="round"/>
+</svg>
+
+<!-- Copyright RZU Informatique -->

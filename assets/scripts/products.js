@@ -50,4 +50,4 @@
   updateLayout();
 })();
 
-// rzu-informatique
+// Copyright RZU Informatique

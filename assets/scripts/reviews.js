@@ -11,4 +11,4 @@
   window.setInterval(()=>show(1),6000);
 })();
 
-// rzu-informatique
+// Copyright RZU Informatique

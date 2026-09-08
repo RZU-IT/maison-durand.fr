@@ -14,6 +14,38 @@
   );
 
   document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+
+  const orchard = document.querySelector('.orchard-scroll');
+  const orchardSteps = orchard ? [...orchard.querySelectorAll('.orchard-step')] : [];
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if (orchard && orchardSteps.length && !reduceMotion) {
+    let scheduled = false;
+
+    const updateOrchard = () => {
+      const rect = orchard.getBoundingClientRect();
+      const travel = Math.max(1, orchard.offsetHeight - window.innerHeight);
+      const progress = Math.max(0, Math.min(1, -rect.top / travel));
+
+      orchardSteps.forEach((step, index) => {
+        const revealAt = (index + 1) / (orchardSteps.length + 1);
+        step.classList.toggle('is-visible', progress >= revealAt);
+      });
+      scheduled = false;
+    };
+
+    const scheduleOrchardUpdate = () => {
+      if (scheduled) return;
+      scheduled = true;
+      requestAnimationFrame(updateOrchard);
+    };
+
+    window.addEventListener('scroll', scheduleOrchardUpdate, { passive: true });
+    window.addEventListener('resize', scheduleOrchardUpdate);
+    updateOrchard();
+  } else {
+    orchardSteps.forEach((step) => step.classList.add('is-visible'));
+  }
 })();
 
-// rzu-informatique
+// Copyright RZU Informatique

@@ -19,4 +19,4 @@
   document.dispatchEvent(new Event('includes:ready'));
 })();
 
-// rzu-informatique
+// Copyright RZU Informatique

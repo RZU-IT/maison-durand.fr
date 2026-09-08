@@ -13,7 +13,6 @@
   color: rgba(255, 255, 255, 0.72);
 }
 
-
 .story-grid {
   width: min(var(--container), calc(100% - 60px));
   margin: 0 auto;
@@ -34,7 +33,6 @@
 .story-grid p + p {
   margin-top: 16px;
 }
-
 
 .timeline {
   padding: 26px;
@@ -75,4 +73,79 @@
   color: var(--c-text-muted);
 }
 
-/* rzu-informatique */
+.orchard-scroll {
+  position: relative;
+  height: 130svh;
+  padding: 0;
+  background:
+    linear-gradient(90deg, rgba(13, 29, 20, .9) 0%, rgba(13, 29, 20, .68) 44%, rgba(13, 29, 20, .14) 78%),
+    url("../images/prunes-branche.jpg") center / cover no-repeat;
+}
+
+.orchard-sticky {
+  position: sticky;
+  top: 0;
+  min-height: 500px;
+  height: 100svh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  color: var(--c-white);
+  background:
+    linear-gradient(90deg, rgba(13, 29, 20, .9) 0%, rgba(13, 29, 20, .68) 44%, rgba(13, 29, 20, .14) 78%),
+    url("../images/prunes-branche.jpg") center / cover no-repeat;
+}
+
+.orchard-copy {
+  width: min(520px, calc(100% - 48px));
+  margin-left: max(24px, calc((100vw - var(--container)) / 2));
+  display: grid;
+  gap: 24px;
+}
+
+.orchard-copy h2 {
+  margin: 0 0 6px;
+  color: var(--c-white);
+  font-size: clamp(2.5rem, 4.2vw, 4.4rem);
+}
+
+.orchard-copy p {
+  max-width: 44ch;
+  margin: 0;
+  color: rgba(255, 255, 255, .86);
+  font-size: clamp(.98rem, 1.15vw, 1.12rem);
+  line-height: 1.55;
+}
+
+.orchard-step {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(18px);
+  transition: opacity .55s ease, transform .55s ease, visibility 0s linear .55s;
+}
+
+.orchard-step.is-visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  transition-delay: 0s;
+}
+
+@media (max-width: 700px) {
+  .orchard-scroll { height: 125svh; }
+  .orchard-sticky {
+    top: 0;
+    min-height: 500px;
+    height: 100svh;
+    align-items: end;
+    padding-bottom: 72px;
+    background-position: 58% center;
+  }
+  .orchard-copy { width: min(520px, calc(100% - 36px)); margin-inline: auto; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .orchard-step { opacity: 1; visibility: visible; transform: none; transition: none; }
+}
+
+/* Copyright RZU Informatique */

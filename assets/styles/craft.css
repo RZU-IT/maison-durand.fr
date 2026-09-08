@@ -8,34 +8,28 @@
   width: min(var(--container), 100%);
   margin: 0 auto;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 22px;
+  grid-template-columns: 1fr;
+  gap: 0;
   align-items: stretch;
+  border-bottom: 1px solid var(--c-border);
 }
 
-
 .info-card {
-  padding: 28px;
-  border: 1px solid var(--c-border);
-  border-radius: 22px;
-  background: var(--c-white);
-  box-shadow: var(--sh-card);
-  transition: transform var(--t-slow), box-shadow var(--t-slow), border-color var(--t-slow);
+  display: grid;
+  grid-template-columns: minmax(220px, .65fr) minmax(0, 1fr);
+  gap: clamp(28px, 6vw, 90px);
+  align-items: baseline;
+  padding: 30px 0;
+  border: 0;
+  border-top: 1px solid var(--c-border);
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  transition: border-color var(--t-base);
 }
 
 .info-card:hover {
-  transform: translateY(-6px);
-  border-color: rgba(91, 41, 79, 0.2);
-  box-shadow: 0 20px 48px rgba(38, 15, 32, 0.12);
-}
-
-.info-card-number {
-  display: inline-block;
-  margin-bottom: 18px;
-  color: var(--c-accent);
-  font-family: var(--f-primary);
-  font-weight: 900;
-  font-size: 1.2rem;
+  border-color: var(--c-accent);
 }
 
 .info-card h3 {
@@ -43,8 +37,12 @@
 }
 
 .info-card p {
-  margin-top: 12px;
+  margin-top: 0;
   color: var(--c-text-muted);
 }
 
-/* rzu-informatique */
+@media (max-width: 680px) {
+  .info-card { grid-template-columns: 1fr; gap: 8px; padding: 24px 0; }
+}
+
+/* Copyright RZU Informatique */

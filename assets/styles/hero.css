@@ -1,77 +1,68 @@
 
 
 .hero-section {
-  min-height: 94svh;
-  padding-top: 150px;
+  min-height: min(760px, 92svh);
+  padding-top: 132px;
+  padding-bottom: 64px;
   padding-inline: clamp(18px, 5vw, 56px);
   color: var(--c-white);
   background:
-    radial-gradient(circle at 76% 38%, rgba(185, 121, 69, 0.16), transparent 26%),
-    radial-gradient(circle at 12% 80%, rgba(55, 105, 70, 0.20), transparent 32%),
-    var(--g-hero);
+    linear-gradient(90deg, rgba(17, 38, 26, .94) 0%, rgba(17, 38, 26, .72) 48%, rgba(17, 38, 26, .78) 100%),
+    url("../images/verger-prunes.jpg") center 48% / cover no-repeat;
   overflow: hidden;
 }
-
 
 .hero-layout {
   width: min(var(--container), 100%);
   margin: 0 auto;
   display: grid;
-  grid-template-columns: minmax(0, 1.08fr) minmax(360px, 0.92fr);
-  gap: clamp(34px, 5vw, 72px);
+  grid-template-columns: minmax(280px, .8fr) minmax(380px, 1.2fr);
+  gap: clamp(32px, 7vw, 110px);
   align-items: center;
 }
-
 
 .hero-copy {
   position: relative;
   z-index: 2;
-}
-
-.hero-copy .section-kicker {
-  margin-bottom: 16px;
+  overflow: visible;
+  padding-block: 12px;
 }
 
 .hero-copy h1 {
-  max-width: 780px;
+  max-width: 7ch;
+  margin: 0;
+  padding-bottom: .1em;
+  font-size: clamp(3.4rem, 6.1vw, 6rem);
+  line-height: .91;
+  opacity: 0;
+  clip-path: inset(0 100% 0 0);
+  transform: translateY(32px);
+  animation: hero-title-reveal 1.05s .18s cubic-bezier(.2,.78,.2,1) forwards;
 }
-
-.hero-description {
-  max-width: 620px;
-  margin-top: 24px;
-  color: rgba(255, 255, 255, 0.74);
-  font-size: clamp(1rem, 1.6vw, 1.18rem);
-}
-
-.hero-actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 14px;
-  margin-top: 32px;
-}
-
 
 .hero-visual {
   position: relative;
-  min-height: clamp(380px, 38vw, 460px);
+  min-height: clamp(420px, 40vw, 500px);
   isolation: isolate;
+  opacity: 0;
+  transform: translateY(28px) scale(.94);
+  animation: hero-object-in 1s .65s cubic-bezier(.2,.78,.2,1) forwards;
 }
-
 
 .prune-card {
   position: absolute;
   left: 50%;
   top: 52%;
-  width: clamp(230px, 24vw, 280px);
-  height: clamp(292px, 30vw, 340px);
+  width: clamp(250px, 25vw, 310px);
+  height: clamp(315px, 31vw, 372px);
   transform: translate(-50%, -50%) rotate(-6deg);
   transition: transform var(--t-slow), filter var(--t-slow);
   z-index: 2;
 }
 
 .hero-visual:hover .prune-card {
-  transform: translate(-50%, -54%) rotate(0deg);
-  filter: saturate(1.08);
+  transform: translate(-50%, -52%) rotate(-3deg);
+  filter: saturate(1.03);
 }
 
 .prune-card-top {
@@ -95,7 +86,7 @@
   border-radius: 32px;
   color: var(--c-white);
   background: linear-gradient(145deg, #d39a62 0%, #9f6b42 38%, #5b294f 100%);
-  box-shadow: 0 26px 70px rgba(10, 4, 9, 0.28);
+  box-shadow: 0 8px 22px rgba(10, 4, 9, 0.13);
 }
 
 .prune-card-body span,
@@ -116,18 +107,13 @@
   line-height: 0.98;
 }
 
-
 .prune,
 .prune-shape {
   position: absolute;
   display: block;
   border-radius: 48% 52% 44% 56% / 58% 45% 55% 42%;
-  background:
-    radial-gradient(circle at 30% 24%, rgba(255, 255, 255, 0.28), transparent 12%),
-    linear-gradient(145deg, #180714, #6f2d62 64%, #c9824a);
-  box-shadow:
-    inset -18px -22px 30px rgba(0, 0, 0, 0.34),
-    0 20px 36px rgba(0, 0, 0, 0.26);
+  background: #572149;
+  box-shadow: inset -8px -10px 14px rgba(0, 0, 0, 0.2);
 }
 
 .prune-one {
@@ -159,6 +145,15 @@
   50%       { transform: translateY(-18px) rotate(5deg); }
 }
 
+@keyframes hero-title-reveal {
+  0% { opacity: 0; clip-path: inset(-.2em 100% -.2em 0); transform: translateY(32px); }
+  55% { opacity: 1; }
+  100% { opacity: 1; clip-path: inset(-.2em 0); transform: none; }
+}
+
+@keyframes hero-object-in {
+  to { opacity: 1; transform: none; }
+}
 
 .proof-row {
   width: min(980px, 100%);
@@ -169,13 +164,12 @@
 }
 
 .proof-row article {
-  padding: 17px;
+  padding: 15px 18px;
   text-align: center;
-  border-radius: 22px;
-  background: rgba(255, 255, 255, 0.075);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  backdrop-filter: blur(10px);
+  border-left: 1px solid rgba(255, 255, 255, 0.18);
 }
+
+.proof-row article:first-child { border-left: 0; }
 
 .proof-row strong,
 .proof-row span {
@@ -192,4 +186,4 @@
   font-size: var(--fs-sm);
 }
 
-/* rzu-informatique */
+/* Copyright RZU Informatique */
