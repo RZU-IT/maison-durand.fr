@@ -132,7 +132,7 @@
 }
 
 @media (max-width: 700px) {
-  html { scroll-snap-type: y proximity; }
+  html.orchard-forward-snap { scroll-snap-type: y proximity; }
   .orchard-scroll { height: 420svh; }
   .mobile-scroll-stop {
     position: absolute;

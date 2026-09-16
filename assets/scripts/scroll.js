@@ -30,6 +30,24 @@
   const compactViewport = window.matchMedia('(max-width: 700px)').matches;
 
   if (orchard && orchardSteps.length && compactViewport && !reduceMotion) {
+    let touchStartY = null;
+    const setForwardSnap = (enabled) => document.documentElement.classList.toggle('orchard-forward-snap', enabled);
+
+    window.addEventListener('touchstart', (event) => {
+      touchStartY = event.touches[0] ? event.touches[0].clientY : null;
+    }, { passive: true });
+    window.addEventListener('touchmove', (event) => {
+      if (touchStartY === null || !event.touches[0]) return;
+      const delta = touchStartY - event.touches[0].clientY;
+      if (Math.abs(delta) > 6) setForwardSnap(delta > 0);
+    }, { passive: true });
+    window.addEventListener('touchend', () => { touchStartY = null; }, { passive: true });
+    window.addEventListener('wheel', (event) => setForwardSnap(event.deltaY > 0), { passive: true });
+    window.addEventListener('keydown', (event) => {
+      if (['ArrowUp', 'PageUp', 'Home'].includes(event.key)) setForwardSnap(false);
+      if (['ArrowDown', 'PageDown', 'End', ' '].includes(event.key)) setForwardSnap(true);
+    });
+
     const snapPoints = [0, ...orchardSteps.map((step, index) => (index + 1) / (orchardSteps.length + 1)), 1];
     const snapStops = snapPoints.map((progress) => {
       const stop = document.createElement('span');
@@ -59,6 +77,9 @@
       const rect = orchard.getBoundingClientRect();
       const travel = Math.max(1, orchard.offsetHeight - window.innerHeight);
       const progress = Math.max(0, Math.min(1, -rect.top / travel));
+      if (compactViewport && rect.bottom <= window.innerHeight * 0.2) {
+        document.documentElement.classList.remove('orchard-forward-snap');
+      }
 
       orchardSteps.forEach((step, index) => {
         const revealAt = (index + 1) / (orchardSteps.length + 1);
