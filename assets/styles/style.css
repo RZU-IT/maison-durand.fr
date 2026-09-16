@@ -1,4 +1,4 @@
-
+html { -webkit-tap-highlight-color: transparent; }
 
 :root {
 
@@ -220,13 +220,18 @@ h3 {
 
 .reveal {
   opacity: 0;
-  transform: translateY(28px);
-  transition: opacity 0.65s ease, transform 0.65s ease;
+  transform: translateY(24px);
+  transition:
+    opacity .95s ease,
+    transform .95s cubic-bezier(.2, .72, .2, 1);
+  transition-delay: var(--reveal-delay, 0ms);
+  will-change: opacity, transform;
 }
 
 .reveal.visible {
   opacity: 1;
   transform: translateY(0);
+  will-change: auto;
 }
 
 /* Copyright RZU Informatique */

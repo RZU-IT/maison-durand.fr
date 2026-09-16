@@ -75,7 +75,7 @@
 
 .orchard-scroll {
   position: relative;
-  height: 130svh;
+  height: 250svh;
   padding: 0;
   background:
     linear-gradient(90deg, rgba(13, 29, 20, .9) 0%, rgba(13, 29, 20, .68) 44%, rgba(13, 29, 20, .14) 78%),
@@ -121,7 +121,7 @@
   opacity: 0;
   visibility: hidden;
   transform: translateY(18px);
-  transition: opacity .55s ease, transform .55s ease, visibility 0s linear .55s;
+  transition: opacity .9s ease, transform .9s cubic-bezier(.2, .72, .2, 1), visibility 0s linear .9s;
 }
 
 .orchard-step.is-visible {
@@ -132,17 +132,7 @@
 }
 
 @media (max-width: 700px) {
-  html.orchard-forward-snap { scroll-snap-type: y proximity; }
-  .orchard-scroll { height: 420svh; }
-  .mobile-scroll-stop {
-    position: absolute;
-    left: 0;
-    width: 1px;
-    height: 1px;
-    pointer-events: none;
-    scroll-snap-align: start;
-    scroll-snap-stop: always;
-  }
+  .orchard-scroll { height: 290svh; }
   .orchard-sticky {
     top: 0;
     min-height: 500px;

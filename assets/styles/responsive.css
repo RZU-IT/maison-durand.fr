@@ -54,13 +54,7 @@
 @media (max-width: 620px) {
 
   .reveal {
-    opacity: 0;
-    transform: translateY(24px);
-    transition-property: opacity, transform !important;
-    transition-duration: .9s, .9s !important;
-    transition-timing-function: ease, cubic-bezier(.2, .72, .2, 1) !important;
-    transition-delay: var(--reveal-delay, 0ms) !important;
-    will-change: opacity, transform;
+    transform: translateY(20px);
   }
 
   .reveal.visible {
