@@ -53,6 +53,21 @@
 
 @media (max-width: 620px) {
 
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition-property: opacity, transform !important;
+    transition-duration: .9s, .9s !important;
+    transition-timing-function: ease, cubic-bezier(.2, .72, .2, 1) !important;
+    transition-delay: var(--reveal-delay, 0ms) !important;
+    will-change: opacity, transform;
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
   .navbar {
     width: calc(100% - 20px);
     margin-top: 10px;
@@ -136,5 +151,15 @@
 
 @media (max-width: 920px){.reviews-layout{grid-template-columns:1fr}.form-row{grid-template-columns:1fr}.reviews-track{min-height:280px}}
 @media (max-width: 620px){.footer-bottom{flex-direction:column;text-align:center}.footer-legal{justify-content:center}.contact-hours p{flex-direction:column;gap:2px}.reviews-carousel{padding:20px}.reviews-track{min-height:250px}.review-card{gap:10px;padding-bottom:8px}.review-card blockquote{font-size:1.18rem;line-height:1.25}.reviews-controls{justify-content:center;margin-top:12px}.reviews-score{padding:22px}.reviews-score strong{font-size:3.6rem}.score-bars{margin-top:14px}}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal,
+  .reveal.visible {
+    opacity: 1;
+    transform: none;
+    transition: none !important;
+    will-change: auto;
+  }
+}
 
 /* Copyright RZU Informatique */

@@ -1,23 +1,32 @@
 
 
 (function () {
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const revealElements = [...document.querySelectorAll('.reveal')];
+
+  if (reduceMotion) {
+    revealElements.forEach((element) => element.classList.add('visible'));
+  } else {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const entering = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((first, second) => first.boundingClientRect.top - second.boundingClientRect.top);
+
+        entering.forEach((entry, index) => {
+          entry.target.style.setProperty('--reveal-delay', `${Math.min(index * 90, 270)}ms`);
           entry.target.classList.add('visible');
           observer.unobserve(entry.target);
-        }
-      });
-    },
-    { threshold: 0.12 }
-  );
+        });
+      },
+      { threshold: 0.12 }
+    );
 
-  document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+    revealElements.forEach((element) => observer.observe(element));
+  }
 
   const orchard = document.querySelector('.orchard-scroll');
   const orchardSteps = orchard ? [...orchard.querySelectorAll('.orchard-step')] : [];
-  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   if (orchard && orchardSteps.length && !reduceMotion) {
     let scheduled = false;
