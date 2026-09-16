@@ -27,6 +27,30 @@
 
   const orchard = document.querySelector('.orchard-scroll');
   const orchardSteps = orchard ? [...orchard.querySelectorAll('.orchard-step')] : [];
+  const compactViewport = window.matchMedia('(max-width: 700px)').matches;
+
+  if (orchard && orchardSteps.length && compactViewport && !reduceMotion) {
+    const snapPoints = [0, ...orchardSteps.map((step, index) => (index + 1) / (orchardSteps.length + 1)), 1];
+    const snapStops = snapPoints.map((progress) => {
+      const stop = document.createElement('span');
+      stop.className = 'mobile-scroll-stop';
+      stop.setAttribute('aria-hidden', 'true');
+      stop.dataset.progress = String(progress);
+      orchard.append(stop);
+      return stop;
+    });
+
+    const positionSnapStops = () => {
+      const travel = Math.max(1, orchard.offsetHeight - window.innerHeight);
+      snapStops.forEach((stop) => {
+        stop.style.top = `${Number(stop.dataset.progress) * travel}px`;
+      });
+    };
+
+    positionSnapStops();
+    window.addEventListener('resize', positionSnapStops);
+    window.addEventListener('orientationchange', positionSnapStops);
+  }
 
   if (orchard && orchardSteps.length && !reduceMotion) {
     let scheduled = false;

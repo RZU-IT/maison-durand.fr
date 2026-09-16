@@ -132,7 +132,17 @@
 }
 
 @media (max-width: 700px) {
-  .orchard-scroll { height: 125svh; }
+  html { scroll-snap-type: y proximity; }
+  .orchard-scroll { height: 420svh; }
+  .mobile-scroll-stop {
+    position: absolute;
+    left: 0;
+    width: 1px;
+    height: 1px;
+    pointer-events: none;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+  }
   .orchard-sticky {
     top: 0;
     min-height: 500px;
