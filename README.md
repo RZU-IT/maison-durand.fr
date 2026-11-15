@@ -21,3 +21,9 @@ python -m http.server 8000 --bind 127.0.0.1
 Ouvrir <http://127.0.0.1:8000/>. Une ouverture directe en `file://` ne permet pas de charger les partials.
 
 Publication statique sur GitHub Pages, sans serveur applicatif.
+
+## Consultation et réutilisation
+
+Ce site est une démonstration réalisée par **RZU Informatique**. Vous pouvez le consulter et explorer les sources. Pour reprendre le code, le design ou les contenus dans un autre projet, merci de demander une autorisation préalable.
+
+Les éléments tiers conservent leurs droits et licences respectifs.
